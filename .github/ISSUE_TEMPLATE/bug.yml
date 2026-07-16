@@ -1,0 +1,26 @@
+name: Bug report
+description: Report a reproducible SISUVim problem.
+labels: [bug]
+body:
+  - type: textarea
+    attributes:
+      label: Problem
+      description: What happened and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Reproduction
+      description: Include a minimal file and exact steps.
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Editor version
+      placeholder: Neovim 0.12.4 or Vim 9.2
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Compatibility impact
+      description: Does this affect a spf13-vim mapping or workflow?

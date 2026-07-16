@@ -49,6 +49,7 @@ Git interface and does not download a Vim plugin.
 | `scripts/install-packages.sh` | Reproducible optional package installer |
 | `docs/keymaps.md` | Supported keymap contract |
 | `docs/configuration.md` | External user configuration |
+| `docs/interface.md` | Native Vim dashboard and file tree |
 | `docs/releasing.md` | Maintainer release checklist |
 
 ## Verify
@@ -60,6 +61,13 @@ nvim --clean --headless '+set rtp^=$PWD' '+luafile init.lua' '+qa'
 ```
 
 Run `:checkhealth sisuvim` in Neovim for an environment report.
+
+## Vim interface
+
+Starting Vim without a filename opens a native Dashboard alongside a Netrw
+file-tree sidebar. The interface includes a persistent statusline and tabline
+without adding a Vim UI plugin. See [docs/interface.md](docs/interface.md) for
+controls and opt-out details.
 
 ## Navigation and search
 

@@ -15,15 +15,18 @@ tracks user-visible behavior that is intentionally kept during the migration.
 | Clear search highlight | `<leader>/` |
 | Current-directory edit/split/tab | `<leader>ew/es/ev/et` |
 | File explorer | `F5`, `<leader>e` |
+| Find files | `<leader>ff` |
+| Search project text | `<leader>fg` |
+| Find buffers / recent files | `<leader>fb` / `<leader>fr` |
 | Repeat visual indent | `<` / `>` |
 
-The leader remains Space. SISUVim deliberately uses built-in `:Explore` during
-the foundation stage instead of making a file-tree plugin mandatory.
+The leader remains Space. Neovim uses an optional native-package module for
+the explorer and picker, with built-in `:Explore` as a failure-safe fallback.
 
 ## Deliberately deferred
 
-- LSP, completion, Treesitter, Git UI, fuzzy finding, and file-tree plugins.
-- Plugin-specific mappings such as NERDTree, CtrlP, Fugitive, Syntastic, and
+- LSP, completion, Treesitter, Git UI, and formatting plugins.
+- Plugin-specific mappings such as Fugitive, Syntastic, and
   YouCompleteMe.
 - Language-specific mappings.
 

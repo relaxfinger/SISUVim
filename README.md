@@ -6,7 +6,7 @@ small, maintainable codebase for current Vim and Neovim.
 
 ## Goals
 
-- Support Vim 9.0+ and Neovim 0.10+ from one repository.
+- Support Vim 9.0+ and Neovim 0.12+ from one repository.
 - Keep familiar high-frequency mappings: window navigation, wrapped-line
   movement, tabs, folds, visual indentation, and current-file-directory edits.
 - Use Neovim Lua for Neovim-specific configuration and Vim9-compatible
@@ -47,6 +47,24 @@ nvim --clean --headless '+set rtp^=$PWD' '+luafile init.lua' '+qa'
 ```
 
 Run `:checkhealth sisuvim` in Neovim for an environment report.
+
+## Navigation and search
+
+Neovim uses its native `vim.pack` package manager to install the optional
+navigation module on first start. Confirm the prompted installation; package
+revisions are persisted in Neovim's lockfile. The module keeps these mappings:
+
+| Mapping | Action |
+| --- | --- |
+| `F5`, `<leader>e` | File explorer |
+| `<leader>ff` | Find files |
+| `<leader>fg` | Search project text |
+| `<leader>fb` | Find open buffers |
+| `<leader>fr` | Recent files |
+
+When optional packages are unavailable, `F5` and `<leader>e` fall back to
+Vim's built-in `:Explore`. Set `vim.g.sisuvim_disable_packages = true` before
+loading SISUVim to disable package installation for a session.
 
 ## License
 

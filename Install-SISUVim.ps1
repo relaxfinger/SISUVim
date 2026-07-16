@@ -56,7 +56,7 @@ if ($WithPackages) {
         if (-not (Get-Command nvim -ErrorAction SilentlyContinue)) {
             throw 'Neovim is required to install Neovim packages.'
         }
-        & nvim --clean --headless --cmd "set rtp^=$Root" --cmd 'let g:sisuvim_install_packages=1' -u (Join-Path $Root 'init.lua') '+qa'
+        & nvim --headless --cmd "set rtp^=$Root" -u (Join-Path $Root 'init.lua') '+lua require("lazy").sync({ wait = true })' '+qa'
     }
 
     if ($InstallVim) {

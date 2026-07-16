@@ -16,10 +16,10 @@ function M.check()
 
   if vim.g.sisuvim_disable_packages then
     vim.health.warn("Optional packages are disabled for this session")
-  elseif vim.pack then
-    vim.health.ok("Native vim.pack is available")
+  elseif pcall(require, "lazy") then
+    vim.health.ok("lazy.nvim is available")
   else
-    vim.health.error("Native vim.pack is unavailable")
+    vim.health.warn("Optional Neovim packages are not installed")
   end
 
   if vim.fn.executable("tree-sitter") == 1 then

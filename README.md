@@ -61,9 +61,9 @@ Run `:checkhealth sisuvim` in Neovim for an environment report.
 
 ## Navigation and search
 
-Neovim uses its native `vim.pack` package manager to install the optional
-navigation module on first start. Confirm the prompted installation; package
-revisions are persisted in Neovim's lockfile. The module keeps these mappings:
+Neovim uses a modular plugin specification powered by `lazy.nvim`. Optional
+packages install on first start and their resolved revisions are persisted in
+`lazy-lock.json`. The navigation module keeps these mappings:
 
 | Mapping | Action |
 | --- | --- |

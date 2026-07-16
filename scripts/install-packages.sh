@@ -23,10 +23,10 @@ if [ "$install_nvim" -eq 1 ]; then
     printf 'Neovim is required for --with-packages.\n' >&2
     exit 1
   }
-  nvim --clean --headless \
+  nvim --headless \
     --cmd "set rtp^=$root" \
-    --cmd 'let g:sisuvim_install_packages=1' \
     -u "$root/init.lua" \
+    '+lua require("lazy").sync({ wait = true })' \
     '+qa'
 fi
 

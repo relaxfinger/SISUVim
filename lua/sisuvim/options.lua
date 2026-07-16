@@ -5,26 +5,9 @@ function M.setup()
   vim.g.maplocalleader = "\\"
 
   local opt = vim.opt
-  opt.background = "dark"
-  opt.number = true
-  opt.cursorline = true
-  opt.mouse = "a"
-  opt.hidden = true
-  opt.ignorecase = true
-  opt.smartcase = true
-  opt.incsearch = true
-  opt.hlsearch = true
-  opt.splitright = true
-  opt.splitbelow = true
-  opt.expandtab = true
-  opt.shiftwidth = 4
-  opt.tabstop = 4
-  opt.softtabstop = 4
-  opt.wrap = false
-  opt.scrolloff = 3
-  opt.sidescrolloff = 3
-  opt.undofile = true
-  opt.completeopt = { "menu", "menuone", "noselect" }
+  for name, value in pairs(require("sisuvim.config").get().options) do
+    opt[name] = value
+  end
 
   vim.cmd.syntax("enable")
 

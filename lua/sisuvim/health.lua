@@ -14,7 +14,8 @@ function M.check()
     vim.health.warn("git is not available; optional modules cannot be installed")
   end
 
-  if vim.g.sisuvim_disable_packages then
+  local config = require("sisuvim.config").get()
+  if config.disable_packages then
     vim.health.warn("Optional packages are disabled for this session")
   elseif pcall(require, "lazy") then
     vim.health.ok("lazy.nvim is available")
@@ -26,6 +27,12 @@ function M.check()
     vim.health.ok("tree-sitter CLI is available for parser installation")
   else
     vim.health.warn("tree-sitter CLI is missing; :SisuTreesitterInstall cannot build parsers")
+  end
+
+  if vim.fn.filereadable(require("sisuvim.config").path()) == 1 then
+    vim.health.ok("Local configuration is loaded")
+  else
+    vim.health.info("No local configuration file is present")
   end
 end
 

@@ -26,6 +26,16 @@ nvim --clean --headless \
   '+lua assert(vim.fn.maparg("<C-k>", "i") ~= "")' \
   '+qa'
 
+config_home=$(mktemp -d)
+mkdir -p "$config_home/sisuvim"
+printf '%s\n' 'return { disable_packages = true, format_on_save = true, options = { shiftwidth = 2, wrap = true } }' > "$config_home/sisuvim/config.lua"
+XDG_CONFIG_HOME="$config_home" nvim --clean --headless \
+  --cmd "set rtp^=$root" \
+  -u "$root/init.lua" \
+  '+lua assert(require("sisuvim.config").get().format_on_save)' \
+  '+lua assert(vim.o.shiftwidth == 2 and vim.o.wrap)' \
+  '+qa'
+
 "$root/tests/install.sh"
 
 printf 'SISUVim smoke tests passed.\n'

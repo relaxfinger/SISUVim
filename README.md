@@ -48,6 +48,7 @@ package directory.
 | `Install-SISUVim.ps1` | Windows PowerShell installer |
 | `scripts/install-packages.sh` | Reproducible optional package installer |
 | `docs/keymaps.md` | Supported keymap contract |
+| `docs/configuration.md` | External user configuration |
 | `docs/releasing.md` | Maintainer release checklist |
 
 ## Verify
@@ -76,8 +77,8 @@ packages install on first start and their resolved revisions are persisted in
 | `<leader>fr` | Recent files |
 
 When optional packages are unavailable, `F5` and `<leader>e` fall back to
-Vim's built-in `:Explore`. Set `vim.g.sisuvim_disable_packages = true` before
-loading SISUVim to disable package installation for a session.
+Vim's built-in `:Explore`. See [docs/configuration.md](docs/configuration.md)
+to disable optional packages or customize startup options.
 
 ## Git workflow
 
@@ -98,8 +99,8 @@ available: `lua-language-server`, `typescript-language-server`,
 
 Use `<leader>ld/lD/li/lr/la/ln` for definition, declaration, implementation,
 references, code action, and rename. `<leader>lf` formats manually, and
-`Ctrl-Space` requests completion. To opt into synchronous format-on-save, set
-`vim.g.sisuvim_format_on_save = true` before SISUVim loads.
+`Ctrl-Space` requests completion. Configuration supports opt-in synchronous
+format-on-save.
 
 ## Snippets
 

@@ -81,7 +81,7 @@ local function setup_attach_behavior()
         vim.lsp.buf.format({ async = true })
       end, "LSP format")
 
-      if vim.g.sisuvim_format_on_save and client:supports_method("textDocument/formatting") then
+      if require("sisuvim.config").get().format_on_save and client:supports_method("textDocument/formatting") then
         vim.api.nvim_create_autocmd("BufWritePre", {
           group = group,
           buffer = event.buf,

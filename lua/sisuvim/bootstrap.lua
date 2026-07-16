@@ -6,7 +6,7 @@ local function root()
 end
 
 function M.setup()
-  if vim.g.sisuvim_disable_packages then
+  if require("sisuvim.config").get().disable_packages then
     return
   end
 

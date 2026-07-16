@@ -23,6 +23,7 @@ tracks user-visible behavior that is intentionally kept during the migration.
 | Toggle Git signs | `<leader>gg` |
 | LSP definition / declaration / implementation / references | `<leader>ld/lD/li/lr` |
 | LSP code action / rename / format | `<leader>la/ln/lf` |
+| Modern syntax, folds, and indentation | `:SisuTreesitterInstall` (Neovim) |
 | Repeat visual indent | `<` / `>` |
 
 The leader remains Space. Neovim uses an optional native-package module for
@@ -30,7 +31,7 @@ the explorer and picker, with built-in `:Explore` as a failure-safe fallback.
 
 ## Deliberately deferred
 
-- Treesitter and language-specific tooling beyond built-in LSP.
+- Tree-sitter text objects and language-specific tooling beyond built-in LSP.
 - Plugin-specific mappings such as Syntastic and
   YouCompleteMe.
 - Language-specific mappings.

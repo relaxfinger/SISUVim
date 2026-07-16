@@ -21,6 +21,12 @@ function M.check()
   else
     vim.health.error("Native vim.pack is unavailable")
   end
+
+  if vim.fn.executable("tree-sitter") == 1 then
+    vim.health.ok("tree-sitter CLI is available for parser installation")
+  else
+    vim.health.warn("tree-sitter CLI is missing; :SisuTreesitterInstall cannot build parsers")
+  end
 end
 
 return M

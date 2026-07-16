@@ -1,4 +1,5 @@
 require("sisuvim.plugins").setup()
 require("sisuvim.options").setup()
+require("sisuvim.treesitter").setup()
 require("sisuvim.lsp").setup()
 require("sisuvim.keymaps").setup()

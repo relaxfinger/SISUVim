@@ -100,6 +100,19 @@ references, code action, and rename. `<leader>lf` formats manually, and
 `Ctrl-Space` requests completion. To opt into synchronous format-on-save, set
 `vim.g.sisuvim_format_on_save = true` before SISUVim loads.
 
+## Tree-sitter
+
+Neovim can install modern Tree-sitter parsers and queries with
+`:SisuTreesitterInstall`; provide language names to install only selected
+parsers, for example `:SisuTreesitterInstall lua python`. The module enables
+Tree-sitter highlighting, folds, and indentation only when a parser is
+available, so regular syntax highlighting remains the safe fallback.
+
+Parser installation requires `tree-sitter` CLI 0.26.1+, a C compiler, and
+`curl`. Tree-sitter text objects are deliberately deferred: the upstream
+ecosystem has recently made an incompatible rewrite, so SISUVim will add them
+after the new API stabilizes.
+
 ## License
 
 MIT. See [LICENSE](LICENSE).

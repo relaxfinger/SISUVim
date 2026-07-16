@@ -21,6 +21,7 @@ set nowrap
 set scrolloff=3
 set sidescrolloff=3
 set undofile
+syntax enable
 
 if has('clipboard')
   set clipboard+=unnamedplus

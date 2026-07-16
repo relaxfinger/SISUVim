@@ -13,6 +13,14 @@ local packages = {
     src = "https://github.com/lewis6991/gitsigns.nvim",
     version = "31d6fb2d618bca1482b9f274751ead5f03461408",
   },
+  {
+    src = "https://github.com/neovim-treesitter/nvim-treesitter",
+    version = "df7489eeea351bece7fd0f9c825be5cb6a1438f0",
+  },
+  {
+    src = "https://github.com/neovim-treesitter/treesitter-parser-registry",
+    version = "6eb15358bb9fc88f0d3401d8538d56652e9bdf3c",
+  },
 }
 
 function M.setup()

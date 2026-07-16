@@ -26,6 +26,8 @@ function M.setup()
   opt.undofile = true
   opt.completeopt = { "menu", "menuone", "noselect" }
 
+  vim.cmd.syntax("enable")
+
   if vim.fn.has("clipboard") == 1 then
     opt.clipboard:append("unnamedplus")
   end

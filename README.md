@@ -76,6 +76,18 @@ change markers and hunk actions: `[c` / `]c` navigate, while
 These integrations are Neovim modules for now; Vim 9 keeps its dependency-free
 core and will gain optional package installation in a later portability pass.
 
+## LSP, completion, and formatting
+
+SISUVim uses Neovim's built-in LSP client and completion instead of a separate
+LSP framework. It automatically enables a server only when its executable is
+available: `lua-language-server`, `typescript-language-server`,
+`basedpyright-langserver`, `gopls`, `rust-analyzer`, or `clangd`.
+
+Use `<leader>ld/lD/li/lr/la/ln` for definition, declaration, implementation,
+references, code action, and rename. `<leader>lf` formats manually, and
+`Ctrl-Space` requests completion. To opt into synchronous format-on-save, set
+`vim.g.sisuvim_format_on_save = true` before SISUVim loads.
+
 ## License
 
 MIT. See [LICENSE](LICENSE).

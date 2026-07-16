@@ -15,6 +15,7 @@ nvim --clean --headless \
   '+lua assert(vim.fn.maparg(" ff", "n") ~= "")' \
   '+lua assert(vim.fn.maparg(" gs", "n") ~= "")' \
   '+lua assert(vim.fn.maparg("<C-Space>", "i") ~= "")' \
+  '+lua assert(vim.fn.maparg("<C-k>", "i") ~= "")' \
   '+qa'
 
 "$root/tests/install.sh"

@@ -24,6 +24,8 @@ tracks user-visible behavior that is intentionally kept during the migration.
 | LSP definition / declaration / implementation / references | `<leader>ld/lD/li/lr` |
 | LSP code action / rename / format | `<leader>la/ln/lf` |
 | Modern syntax, folds, and indentation | `:SisuTreesitterInstall` (Neovim) |
+| Snippet expand/next placeholder | `Ctrl-k` |
+| Previous snippet placeholder | `Ctrl-j` |
 | Repeat visual indent | `<` / `>` |
 
 The leader remains Space. Neovim uses an optional native-package module for

@@ -1,6 +1,7 @@
 local M = {}
 local git = require("sisuvim.git")
 local navigation = require("sisuvim.navigation")
+local snippets = require("sisuvim.snippets")
 
 local function map(mode, lhs, rhs, desc)
   vim.keymap.set(mode, lhs, rhs, { silent = true, desc = desc })
@@ -44,6 +45,8 @@ function M.setup()
   map("v", "<", "<gv", "Indent left and reselect")
   map("v", ">", ">gv", "Indent right and reselect")
   map("v", ".", ":normal .<cr>", "Repeat change on selection")
+  map({ "i", "s" }, "<C-k>", snippets.expand_or_complete, "Expand snippet or complete")
+  map({ "i", "s" }, "<C-j>", snippets.jump_previous, "Previous snippet placeholder")
 
   map("n", "<leader>ew", edit_in_current_directory("edit"), "Edit in file directory")
   map("n", "<leader>es", edit_in_current_directory("split"), "Split in file directory")

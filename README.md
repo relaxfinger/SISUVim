@@ -100,6 +100,14 @@ references, code action, and rename. `<leader>lf` formats manually, and
 `Ctrl-Space` requests completion. To opt into synchronous format-on-save, set
 `vim.g.sisuvim_format_on_save = true` before SISUVim loads.
 
+## Snippets
+
+SISUVim uses Neovim's built-in snippet engine, including snippets returned by
+language servers. `Ctrl-k` preserves the previous expand/jump habit: it moves
+to the next snippet placeholder when one is active, otherwise it requests LSP
+completion. `Ctrl-j` moves to the previous placeholder. No external snippet
+engine or bundled snippet collection is required.
+
 ## Tree-sitter
 
 Neovim can install modern Tree-sitter parsers and queries with

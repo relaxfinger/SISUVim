@@ -19,6 +19,7 @@ The leader key is `Space`.
 | Files | `<leader>fr` | Open recent files |
 | Files | `<leader>e` or `Ctrl-e` | Toggle file explorer |
 | Files | `<leader>nt` | Reveal the current file in the explorer |
+| Interface | `<leader>sh` | Open the SISUVim dashboard |
 | Search | `<leader>ff` | Find keyword occurrences and jump to a selection |
 | Editing | `Y` | Yank to the end of line |
 | Editing | Visual `<` / `>` | Indent and retain the selection |
@@ -37,6 +38,7 @@ The leader key is `Space`.
 
 - File finding lives at `<leader>pf`, keeping `<leader>ff` available for its
   focused keyword workflow.
+- Vim opens a Dashboard and a Netrw tree sidebar when started without files.
 - The built-in snippet engine powers snippet navigation, so snippets remain
   available without a mandatory completion framework.
 - Explorer, picker, Git hunk, and Tree-sitter features remain optional when a

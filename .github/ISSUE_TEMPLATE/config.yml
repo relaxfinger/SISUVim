@@ -1,5 +1,5 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Support and configuration questions
+  - name: Configuration and workflow questions
     url: https://github.com/relaxfinger/SISUVim/discussions
-    about: Ask questions and share workflow ideas in Discussions.
+    about: Use Discussions for questions that are not reproducible bugs or focused feature requests.

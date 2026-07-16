@@ -1,0 +1,27 @@
+name: Feature request
+description: Propose a focused SISUVim improvement.
+labels: [enhancement]
+body:
+  - type: textarea
+    attributes:
+      label: Problem
+      description: What editing or configuration problem would this solve?
+      placeholder: I need to…
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Proposed behavior
+      description: Describe the expected workflow, including relevant mappings.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Keymap impact
+      description: List existing mappings affected, or state that none are affected.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Alternatives
+      description: Describe workarounds or other approaches you considered.

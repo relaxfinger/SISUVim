@@ -19,6 +19,12 @@ and the smoke tests whenever a user-visible mapping changes.
 See [docs/releasing.md](docs/releasing.md) for the maintainer publication
 checklist.
 
+## Issue quality
+
+Use the bug form for reproducible failures and the feature form for focused
+proposals. Explain any keymap impact explicitly; preserving a coherent editing
+workflow is more important than adding overlapping shortcuts.
+
 ## Scope
 
 - Keep the Vim 9 core dependency-free and functional.

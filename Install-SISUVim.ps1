@@ -60,15 +60,9 @@ if ($WithPackages) {
     }
 
     if ($InstallVim) {
-        if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
-            throw 'git is required to install Vim packages.'
+        if (-not (Get-Command lazygit -ErrorAction SilentlyContinue)) {
+            Write-Warning 'LazyGit is optional but required for Vim <leader>gs. Install it with your system package manager.'
         }
-        $PackagePath = Join-Path $HOME 'vimfiles\pack\sisuvim\start\vim-fugitive'
-        if (-not (Test-Path -LiteralPath $PackagePath)) {
-            git clone --filter=blob:none --no-checkout https://github.com/tpope/vim-fugitive $PackagePath
-        }
-        git -C $PackagePath fetch --depth=1 origin 3b753cf8c6a4dcde6edee8827d464ba9b8c4a6f0
-        git -C $PackagePath checkout --detach 3b753cf8c6a4dcde6edee8827d464ba9b8c4a6f0
     }
 }
 

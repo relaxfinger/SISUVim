@@ -34,8 +34,8 @@ Set-ExecutionPolicy -Scope Process Bypass
 ```
 
 `--with-packages` installs Neovim packages at the exact revisions specified in
-the configuration, and installs the compatible Vim package into Vim's native
-package directory.
+the configuration. Vim uses the locally installed `lazygit` executable for its
+Git interface and does not download a Vim plugin.
 
 ## Architecture
 
@@ -82,13 +82,16 @@ to disable optional packages or customize startup options.
 
 ## Git workflow
 
+In Vim, `<leader>gs` starts [LazyGit](https://github.com/jesseduffield/lazygit)
+in the current project; exit LazyGit to return to Vim. Install it with your
+system package manager, for example `brew install lazygit` on macOS.
+
 The Neovim Git module provides familiar Git workflow mappings:
 `<leader>gs/gd/gc/gb/gl/gp/gr/gw/ge/gi`. Gitsigns adds inline
 change markers and hunk actions: `[c` / `]c` navigate, while
 `<leader>hp/hs/hr` preview, stage, or reset a hunk. `<leader>gg` toggles signs.
 
-These integrations are Neovim modules for now; Vim 9 keeps its dependency-free
-core and will gain optional package installation in a later portability pass.
+Vim keeps its dependency-free core and delegates Git interaction to LazyGit.
 
 ## LSP, completion, and formatting
 

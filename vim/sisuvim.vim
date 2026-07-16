@@ -63,6 +63,18 @@ nnoremap <leader>q gwip
 nnoremap <leader>jt :%!python3 -m json.tool<CR>:set filetype=json<CR>
 nnoremap <leader>ff [I:let nr = input('Which one: ')<Bar>execute 'normal ' . nr . "[\t"<CR>
 
+function! s:OpenLazyGit() abort
+  if !executable('lazygit')
+    echoerr 'SISUVim requires lazygit for <leader>gs. Install it and restart Vim.'
+    return
+  endif
+  execute '!lazygit'
+  redraw!
+endfunction
+
+command! SISULazyGit call <SID>OpenLazyGit()
+nnoremap <silent> <leader>gs :SISULazyGit<CR>
+
 function! s:WrapRelativeMotion(key) abort
   return &wrap ? 'g' . a:key : a:key
 endfunction

@@ -25,7 +25,7 @@ The leader key is `Space`.
 | Editing | Visual `.` | Repeat the last change across the selection |
 | Editing | `<leader>ew/es/ev/et` | Edit, split, vertical split, or tab-edit in the current file's directory |
 | Folding | `<leader>f0` … `<leader>f9` | Set fold level |
-| Git | `<leader>gs` | Open Git status |
+| Git | `<leader>gs` | Open LazyGit in Vim, or Git status in Neovim |
 | Git | `]c` / `[c` | Next / previous changed hunk |
 | Git | `<leader>hs/hr/hp` | Stage, reset, or preview a hunk |
 | Diagnostics | `[d` / `]d` | Previous / next diagnostic |

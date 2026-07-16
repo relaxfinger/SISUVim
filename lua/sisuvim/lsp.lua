@@ -104,6 +104,22 @@ function M.setup()
     virtual_text = { spacing = 2 },
   })
 
+  vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {
+    silent = true,
+    desc = "Previous diagnostic",
+  })
+  vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {
+    silent = true,
+    desc = "Next diagnostic",
+  })
+  vim.keymap.set("n", "<leader>le", vim.diagnostic.open_float, {
+    silent = true,
+    desc = "Line diagnostics",
+  })
+  vim.keymap.set("n", "<leader>lq", vim.diagnostic.setloclist, {
+    silent = true,
+    desc = "Diagnostics to location list",
+  })
   vim.keymap.set("i", "<C-Space>", vim.lsp.completion.get, {
     silent = true,
     desc = "Trigger LSP completion",

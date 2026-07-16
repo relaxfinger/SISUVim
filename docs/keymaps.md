@@ -28,6 +28,8 @@ The leader key is `Space`.
 | Git | `<leader>gs` | Open Git status |
 | Git | `]c` / `[c` | Next / previous changed hunk |
 | Git | `<leader>hs/hr/hp` | Stage, reset, or preview a hunk |
+| Diagnostics | `[d` / `]d` | Previous / next diagnostic |
+| Diagnostics | `<leader>le` / `<leader>lq` | Show line diagnostics / populate location list |
 | Snippets | `Ctrl-Space` | Expand a snippet or jump forward |
 | Snippets | `Ctrl-k` | Jump backward in a snippet |
 

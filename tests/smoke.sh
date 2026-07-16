@@ -22,6 +22,9 @@ nvim --clean --headless \
   '+lua assert(vim.fn.maparg(" pf", "n") ~= "")' \
   '+lua assert(vim.fn.maparg(" fc", "n") ~= "")' \
   '+lua assert(vim.fn.maparg(" gs", "n") ~= "")' \
+  '+lua assert(vim.fn.maparg("[d", "n") ~= "")' \
+  '+lua assert(vim.fn.maparg("]d", "n") ~= "")' \
+  '+lua assert(vim.fn.maparg(" le", "n") ~= "")' \
   '+lua assert(vim.fn.maparg("<C-Space>", "i") ~= "")' \
   '+lua assert(vim.fn.maparg("<C-k>", "i") ~= "")' \
   '+qa'

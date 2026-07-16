@@ -100,7 +100,8 @@ available: `lua-language-server`, `typescript-language-server`,
 Use `<leader>ld/lD/li/lr/la/ln` for definition, declaration, implementation,
 references, code action, and rename. `<leader>lf` formats manually, and
 `Ctrl-Space` requests completion. Configuration supports opt-in synchronous
-format-on-save.
+format-on-save. Use `[d` / `]d` to move between diagnostics, `<leader>le` to
+inspect the current line, and `<leader>lq` to populate the location list.
 
 ## Snippets
 

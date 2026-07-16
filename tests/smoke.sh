@@ -6,6 +6,8 @@ root=$(CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)
 if ! vim -Nu NONE -n -es \
   "+source $root/vimrc" \
   '+if maparg("<F5>", "n") ==# "" | cquit | endif' \
+  '+if maparg(" gs", "n") ==# "" | cquit | endif' \
+  '+if exists(":SISULazyGit") != 2 | cquit | endif' \
   '+qa'; then
   vim -Nu NONE -n -e -V1 \
     "+source $root/vimrc" \

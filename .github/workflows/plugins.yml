@@ -24,7 +24,7 @@ jobs:
   bootstrap:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6.0.2
+      - uses: actions/checkout@v7.0.0
       - name: Install Neovim
         run: |
           curl --fail --location --silent --show-error \

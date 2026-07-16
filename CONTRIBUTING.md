@@ -16,6 +16,9 @@ and the smoke tests whenever a user-visible mapping changes.
 3. Document user-visible behavior in `README.md` and `CHANGELOG.md`.
 4. Open a pull request with the compatibility impact and verification steps.
 
+See [docs/releasing.md](docs/releasing.md) for the maintainer publication
+checklist.
+
 ## Scope
 
 - Keep the Vim 9 core dependency-free and functional.

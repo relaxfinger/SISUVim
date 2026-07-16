@@ -48,6 +48,7 @@ package directory.
 | `Install-SISUVim.ps1` | Windows PowerShell installer |
 | `scripts/install-packages.sh` | Reproducible optional package installer |
 | `docs/keymaps.md` | Supported keymap contract |
+| `docs/releasing.md` | Maintainer release checklist |
 
 ## Verify
 

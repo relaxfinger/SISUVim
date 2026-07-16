@@ -2,17 +2,7 @@ name: Plugin checks
 
 on:
   push:
-    paths:
-      - "lazy-lock.json"
-      - "lua/sisuvim/bootstrap.lua"
-      - "lua/sisuvim/plugins/**"
-      - ".github/workflows/plugins.yml"
   pull_request:
-    paths:
-      - "lazy-lock.json"
-      - "lua/sisuvim/bootstrap.lua"
-      - "lua/sisuvim/plugins/**"
-      - ".github/workflows/plugins.yml"
   schedule:
     - cron: "23 4 * * 1"
   workflow_dispatch:

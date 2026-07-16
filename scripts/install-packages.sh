@@ -7,7 +7,10 @@ install_vim=$3
 data_home=${XDG_DATA_HOME:-"$HOME/.local/share"}
 
 install_vim_package() {
-  local name=$1 url=$2 revision=$3 destination="$data_home/vim/pack/sisuvim/start/$name"
+  local name=$1
+  local url=$2
+  local revision=$3
+  local destination="$data_home/vim/pack/sisuvim/start/$name"
   mkdir -p "$(dirname "$destination")"
   if [ -d "$destination/.git" ]; then
     git -C "$destination" fetch --depth=1 origin "$revision"

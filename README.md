@@ -18,16 +18,25 @@ small, maintainable codebase for current Vim and Neovim.
 
 ## Install
 
-Clone this repository, then link the appropriate entry point:
+Clone this repository, then run the installer:
 
 ```sh
 git clone https://github.com/relaxfinger/SISUVim.git ~/.config/sisuvim
-ln -s ~/.config/sisuvim ~/.config/nvim
-ln -s ~/.config/sisuvim/vimrc ~/.vimrc
+~/.config/sisuvim/install.sh --with-packages
 ```
 
-For an existing configuration, back it up before creating links. `install.sh`
-performs these checks and refuses to replace non-link files.
+The installer moves existing configs to timestamped sibling backups before it
+creates a link; it never deletes them. Use `--nvim`, `--vim`, or `--dry-run` to
+limit or preview changes. On Windows PowerShell, run:
+
+```powershell
+Set-ExecutionPolicy -Scope Process Bypass
+.\Install-SISUVim.ps1 -WithPackages
+```
+
+`--with-packages` installs Neovim packages at the exact revisions specified in
+the configuration, and installs the compatible Vim package into Vim's native
+package directory.
 
 ## Architecture
 
@@ -37,6 +46,8 @@ performs these checks and refuses to replace non-link files.
 | `lua/sisuvim/` | Neovim options, mappings, health check, and optional modules |
 | `vimrc` | Vim entry point |
 | `vim/sisuvim.vim` | Vim-compatible options and mappings |
+| `Install-SISUVim.ps1` | Windows PowerShell installer |
+| `scripts/install-packages.sh` | Reproducible optional package installer |
 | `docs/migration.md` | Mapping compatibility status and migration decisions |
 
 ## Verify

@@ -17,4 +17,6 @@ nvim --clean --headless \
   '+lua assert(vim.fn.maparg("<C-Space>", "i") ~= "")' \
   '+qa'
 
+"$root/tests/install.sh"
+
 printf 'SISUVim smoke tests passed.\n'

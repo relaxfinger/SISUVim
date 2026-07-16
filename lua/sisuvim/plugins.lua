@@ -20,7 +20,7 @@ function M.setup()
     return
   end
 
-  vim.pack.add(packages)
+  vim.pack.add(packages, { confirm = not vim.g.sisuvim_install_packages })
 
   local ok, snacks = pcall(require, "snacks")
   if ok then

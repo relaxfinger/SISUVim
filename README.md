@@ -66,6 +66,16 @@ When optional packages are unavailable, `F5` and `<leader>e` fall back to
 Vim's built-in `:Explore`. Set `vim.g.sisuvim_disable_packages = true` before
 loading SISUVim to disable package installation for a session.
 
+## Git workflow
+
+The Neovim Git module retains the Fugitive-style mappings from the previous
+distribution: `<leader>gs/gd/gc/gb/gl/gp/gr/gw/ge/gi`. Gitsigns adds inline
+change markers and hunk actions: `[c` / `]c` navigate, while
+`<leader>hp/hs/hr` preview, stage, or reset a hunk. `<leader>gg` toggles signs.
+
+These integrations are Neovim modules for now; Vim 9 keeps its dependency-free
+core and will gain optional package installation in a later portability pass.
+
 ## License
 
 MIT. See [LICENSE](LICENSE).

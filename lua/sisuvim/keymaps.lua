@@ -1,4 +1,5 @@
 local M = {}
+local git = require("sisuvim.git")
 local navigation = require("sisuvim.navigation")
 
 local function map(mode, lhs, rhs, desc)
@@ -54,6 +55,8 @@ function M.setup()
       vim.wo.foldlevel = level
     end, "Set fold level " .. level)
   end
+
+  git.setup_keymaps(map)
 end
 
 return M

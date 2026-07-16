@@ -18,6 +18,9 @@ tracks user-visible behavior that is intentionally kept during the migration.
 | Find files | `<leader>ff` |
 | Search project text | `<leader>fg` |
 | Find buffers / recent files | `<leader>fb` / `<leader>fr` |
+| Git status / diff / commit / blame / log | `<leader>gs/gd/gc/gb/gl` |
+| Git push / read / write / edit / patch add | `<leader>gp/gr/gw/ge/gi` |
+| Toggle Git signs | `<leader>gg` |
 | Repeat visual indent | `<` / `>` |
 
 The leader remains Space. Neovim uses an optional native-package module for
@@ -25,8 +28,8 @@ the explorer and picker, with built-in `:Explore` as a failure-safe fallback.
 
 ## Deliberately deferred
 
-- LSP, completion, Treesitter, Git UI, and formatting plugins.
-- Plugin-specific mappings such as Fugitive, Syntastic, and
+- LSP, completion, Treesitter, and formatting plugins.
+- Plugin-specific mappings such as Syntastic and
   YouCompleteMe.
 - Language-specific mappings.
 

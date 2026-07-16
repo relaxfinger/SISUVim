@@ -19,6 +19,8 @@ nvim --clean --headless \
   --cmd 'let g:sisuvim_disable_packages=1' \
   -u "$root/init.lua" \
   '+lua assert(vim.fn.maparg(" ff", "n") ~= "")' \
+  '+lua assert(vim.fn.maparg(" pf", "n") ~= "")' \
+  '+lua assert(vim.fn.maparg(" fc", "n") ~= "")' \
   '+lua assert(vim.fn.maparg(" gs", "n") ~= "")' \
   '+lua assert(vim.fn.maparg("<C-Space>", "i") ~= "")' \
   '+lua assert(vim.fn.maparg("<C-k>", "i") ~= "")' \

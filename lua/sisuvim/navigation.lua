@@ -23,6 +23,15 @@ function M.files()
   end
 end
 
+function M.reveal()
+  local value = snacks()
+  if value then
+    value.explorer.reveal()
+  else
+    vim.cmd("Explore")
+  end
+end
+
 function M.grep()
   local value = snacks()
   if value then

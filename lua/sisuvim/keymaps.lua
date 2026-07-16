@@ -1,10 +1,11 @@
 local M = {}
+local compatibility = require("sisuvim.compatibility")
 local git = require("sisuvim.git")
 local navigation = require("sisuvim.navigation")
 local snippets = require("sisuvim.snippets")
 
-local function map(mode, lhs, rhs, desc)
-  vim.keymap.set(mode, lhs, rhs, { silent = true, desc = desc })
+local function map(mode, lhs, rhs, desc, options)
+  vim.keymap.set(mode, lhs, rhs, vim.tbl_extend("force", { silent = true, desc = desc }, options or {}))
 end
 
 local function current_directory()
@@ -32,13 +33,17 @@ function M.setup()
   map("n", "<C-l>", "<C-w>l<C-w>_", "Focus right window")
   map("n", "<S-h>", "gT", "Previous tab")
   map("n", "<S-l>", "gt", "Next tab")
-  map("n", "<leader>/", "<cmd>nohlsearch<cr>", "Clear search highlight")
+  map("n", "<leader>/", function()
+    vim.o.hlsearch = not vim.o.hlsearch
+  end, "Toggle search highlight")
   map("n", "<leader>=", "<C-w>=", "Equalize windows")
   map("n", "zl", "zL", "Open all folds")
   map("n", "zh", "zH", "Close all folds")
   map("n", "<F5>", navigation.explorer, "Open file explorer")
   map("n", "<leader>e", navigation.explorer, "Open file explorer")
-  map("n", "<leader>ff", navigation.files, "Find files")
+  map("n", "<C-e>", navigation.explorer, "Toggle file explorer")
+  map("n", "<leader>nt", navigation.reveal, "Reveal file in explorer")
+  map("n", "<leader>pf", navigation.files, "Find files")
   map("n", "<leader>fg", navigation.grep, "Grep project")
   map("n", "<leader>fb", navigation.buffers, "Find buffers")
   map("n", "<leader>fr", navigation.recent, "Find recent files")
@@ -59,6 +64,7 @@ function M.setup()
     end, "Set fold level " .. level)
   end
 
+  compatibility.setup(map)
   git.setup_keymaps(map)
 end
 

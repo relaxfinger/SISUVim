@@ -12,10 +12,11 @@ tracks user-visible behavior that is intentionally kept during the migration.
 | Navigate tabs | `Shift-h` / `Shift-l` |
 | Toggle background | `<leader>bg` |
 | Set fold level | `<leader>f0` … `<leader>f9` |
-| Clear search highlight | `<leader>/` |
+| Toggle search highlight | `<leader>/` |
 | Current-directory edit/split/tab | `<leader>ew/es/ev/et` |
 | File explorer | `F5`, `<leader>e` |
-| Find files | `<leader>ff` |
+| Find keyword occurrences | `<leader>ff` |
+| Find files | `<leader>pf` |
 | Search project text | `<leader>fg` |
 | Find buffers / recent files | `<leader>fb` / `<leader>fr` |
 | Git status / diff / commit / blame / log | `<leader>gs/gd/gc/gb/gl` |
@@ -27,9 +28,14 @@ tracks user-visible behavior that is intentionally kept during the migration.
 | Snippet expand/next placeholder | `Ctrl-k` |
 | Previous snippet placeholder | `Ctrl-j` |
 | Repeat visual indent | `<` / `>` |
+| Wrapped-line start/end motions | `0`, `^`, `$`, `Home`, `End` |
+| Find conflict markers / format paragraph / format JSON | `<leader>fc/q/jt` |
+| Legacy file-tree toggle / reveal | `Ctrl-e`, `<leader>nt` |
 
-The leader remains Space. Neovim uses an optional native-package module for
-the explorer and picker, with built-in `:Explore` as a failure-safe fallback.
+The leader remains Space. This table is a compatibility contract: existing
+spf13-vim mappings take precedence over modern convenience mappings. Neovim
+uses an optional native-package module for the explorer and picker, with
+built-in `:Explore` as a failure-safe fallback.
 
 ## Deliberately deferred
 

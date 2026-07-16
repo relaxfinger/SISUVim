@@ -25,6 +25,7 @@ set laststatus=2
 set showtabline=2
 set noshowmode
 set signcolumn=yes
+set cursorlineopt=number,line
 set fillchars=vert:│,fold:·,foldopen:⌄,foldclose:›
 syntax enable
 
@@ -38,11 +39,25 @@ endif
 
 silent! colorscheme habamax
 
-highlight SISUStatusMode cterm=bold ctermfg=16 ctermbg=39 guifg=#101820 guibg=#7aa2f7 gui=bold
-highlight SISUStatus ctermfg=253 ctermbg=238 guifg=#c0caf5 guibg=#1f2335
-highlight SISUStatusInfo ctermfg=117 ctermbg=238 guifg=#7dcfff guibg=#1f2335
-highlight SISUDashboardTitle cterm=bold ctermfg=81 guifg=#7aa2f7 gui=bold
-highlight SISUDashboardHint ctermfg=245 guifg=#a9b1d6
+highlight Normal ctermfg=252 ctermbg=235 guifg=#c0caf5 guibg=#1a1b26
+highlight NormalNC ctermfg=250 ctermbg=235 guifg=#a9b1d6 guibg=#1a1b26
+highlight EndOfBuffer ctermfg=235 ctermbg=235 guifg=#1a1b26 guibg=#1a1b26
+highlight LineNr ctermfg=240 ctermbg=235 guifg=#3b4261 guibg=#1a1b26
+highlight CursorLine ctermbg=236 guibg=#20233a
+highlight CursorLineNr cterm=bold ctermfg=111 ctermbg=236 guifg=#7aa2f7 guibg=#20233a gui=bold
+highlight VertSplit ctermfg=237 ctermbg=235 guifg=#292e42 guibg=#1a1b26
+highlight Directory cterm=bold ctermfg=111 guifg=#7aa2f7 gui=bold
+highlight NetrwDir cterm=bold ctermfg=111 guifg=#7aa2f7 gui=bold
+highlight NetrwTreeBar ctermfg=240 guifg=#3b4261
+highlight TabLine ctermfg=245 ctermbg=236 guifg=#737aa2 guibg=#20233a
+highlight TabLineSel cterm=bold ctermfg=255 ctermbg=238 guifg=#c0caf5 guibg=#292e42 gui=bold
+highlight TabLineFill ctermbg=235 guibg=#1a1b26
+highlight SISUStatusMode cterm=bold ctermfg=16 ctermbg=111 guifg=#1a1b26 guibg=#7aa2f7 gui=bold
+highlight SISUStatus ctermfg=252 ctermbg=237 guifg=#c0caf5 guibg=#292e42
+highlight SISUStatusInfo ctermfg=117 ctermbg=237 guifg=#7dcfff guibg=#292e42
+highlight SISUDashboardTitle cterm=bold ctermfg=111 guifg=#7aa2f7 gui=bold
+highlight SISUDashboardSubtitle ctermfg=109 guifg=#7aa2f7
+highlight SISUDashboardHint ctermfg=245 guifg=#737aa2
 highlight SISUDashboardKey cterm=bold ctermfg=117 guifg=#7dcfff gui=bold
 
 set statusline=%#SISUStatusMode#\ %{toupper(mode())}
@@ -54,7 +69,7 @@ let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
-let g:netrw_winsize = 28
+let g:netrw_winsize = 30
 
 nnoremap <silent> <leader>bg :let &background = &background ==# 'dark' ? 'light' : 'dark'<CR>
 nnoremap j gj
@@ -74,10 +89,10 @@ nnoremap <silent> <leader>/ :set invhlsearch<CR>
 nnoremap <leader>= <C-w>=
 nnoremap zl zL
 nnoremap zh zH
-nnoremap <F5> :Lexplore 28<CR>
-nnoremap <leader>e :Lexplore 28<CR>
-nnoremap <C-e> :Lexplore 28<CR>
-nnoremap <leader>nt :Lexplore 28<CR>
+nnoremap <F5> :Lexplore 30<CR>
+nnoremap <leader>e :Lexplore 30<CR>
+nnoremap <C-e> :Lexplore 30<CR>
+nnoremap <leader>nt :Lexplore 30<CR>
 nnoremap <leader>sh :SISUDashboard<CR>
 xnoremap < <gv
 xnoremap > >gv
@@ -109,22 +124,27 @@ function! s:OpenDashboard() abort
   enew
   setlocal buftype=nofile bufhidden=wipe noswapfile nobuflisted
   setlocal nonumber norelativenumber nocursorline nowrap
+  let l:padding = repeat(' ', max([2, (winwidth(0) - 46) / 2]))
   call setline(1, [
         \ '',
-        \ '                  S I S U V i m',
-        \ '              Modern keyboard-first Vim',
+        \ l:padding . 'SISUVim',
+        \ l:padding . 'A focused, keyboard-first Vim workspace',
         \ '',
-        \ '  <leader>e    Open the file tree',
-        \ '  <leader>pf   Find files',
-        \ '  <leader>fg   Search project text',
-        \ '  <leader>gs   Open LazyGit',
-        \ '  <leader>sh   Return to this dashboard',
+        \ l:padding . '──────────────────────────────────────────────',
         \ '',
-        \ '  Open a file or choose a command to begin.',
+        \ l:padding . '<leader>e    Browse files',
+        \ l:padding . '<leader>pf   Find files',
+        \ l:padding . '<leader>fg   Search project text',
+        \ l:padding . '<leader>gs   Open LazyGit',
+        \ l:padding . '<leader>sh   Open this dashboard',
+        \ '',
+        \ l:padding . 'Open a file from the sidebar to begin.',
         \ ])
-  syntax match SISUDashboardTitle /^\s*S I S U V i m\s*$/
-  syntax match SISUDashboardKey /<leader>\w\+/ containedin=ALL
+  silent! syntax clear SISUDashboardTitle SISUDashboardSubtitle SISUDashboardHint SISUDashboardKey
   syntax match SISUDashboardHint /^\s\{2\}.*/
+  syntax match SISUDashboardSubtitle /^\s*A focused, keyboard-first Vim workspace\s*$/
+  syntax match SISUDashboardTitle /^\s*SISUVim\s*$/
+  syntax match SISUDashboardKey /<leader>\w\+/ containedin=ALL
   setlocal nomodifiable nomodified
   normal! gg
 endfunction
@@ -134,7 +154,7 @@ function! s:OpenStartupWorkspace() abort
     return
   endif
   call s:OpenDashboard()
-  silent! Lexplore 28
+  silent! Lexplore 30
   wincmd p
 endfunction
 

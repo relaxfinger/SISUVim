@@ -1,0 +1,25 @@
+name: test
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6.0.2
+      - name: Install Vim
+        run: sudo apt-get update && sudo apt-get install --yes vim curl
+      - name: Install Neovim
+        run: |
+          curl --fail --location --silent --show-error \
+            --output /tmp/nvim.tar.gz \
+            https://github.com/neovim/neovim/releases/download/v0.12.2/nvim-linux-x86_64.tar.gz
+          tar --extract --gzip --file /tmp/nvim.tar.gz --directory /tmp
+          echo /tmp/nvim-linux-x86_64/bin >> "$GITHUB_PATH"
+      - name: Run smoke tests
+        run: ./tests/smoke.sh

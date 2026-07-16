@@ -44,6 +44,7 @@ performs these checks and refuses to replace non-link files.
 ```sh
 vim -Nu NONE -n -es '+source vimrc' '+qa'
 nvim --clean --headless '+set rtp^=$PWD' '+luafile init.lua' '+qa'
+./tests/smoke.sh
 ```
 
 Run `:checkhealth sisuvim` in Neovim for an environment report.

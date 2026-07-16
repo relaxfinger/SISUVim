@@ -3,10 +3,16 @@ set -euo pipefail
 
 root=$(CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)
 
-vim -Nu NONE -n -es \
+if ! vim -Nu NONE -n -es \
   "+source $root/vimrc" \
   '+if maparg("<F5>", "n") ==# "" | cquit | endif' \
-  '+qa'
+  '+qa'; then
+  vim -Nu NONE -n -e -V1 \
+    "+source $root/vimrc" \
+    '+if maparg("<F5>", "n") ==# "" | cquit | endif' \
+    '+qa' || true
+  exit 1
+fi
 
 nvim --clean --headless \
   --cmd "set rtp^=$root" \

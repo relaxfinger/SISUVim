@@ -1,4 +1,4 @@
-if !has('patch-9.0')
+if v:version < 900
   echoerr 'SISUVim requires Vim 9.0 or newer.'
   finish
 endif

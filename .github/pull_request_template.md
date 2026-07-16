@@ -1,9 +1,9 @@
 ## Summary
 
-## spf13 compatibility impact
+## Keymap compatibility impact
 
 - [ ] No existing mapping changes.
-- [ ] Existing behavior is preserved or documented in `docs/migration.md`.
+- [ ] Existing behavior is preserved or documented in `docs/keymaps.md`.
 
 ## Verification
 

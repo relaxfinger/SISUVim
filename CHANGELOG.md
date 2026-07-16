@@ -3,7 +3,7 @@
 All notable changes to SISUVim are documented in this file.
 
 SISUVim follows [Semantic Versioning](https://semver.org/). User-visible
-spf13-vim compatibility changes are called out explicitly.
+keymap compatibility changes are called out explicitly.
 
 ## [Unreleased]
 
@@ -11,7 +11,7 @@ spf13-vim compatibility changes are called out explicitly.
 
 - Safe cross-platform installers, optional modern navigation, Git, LSP,
   Tree-sitter, and native snippet modules.
-- A tested compatibility layer for core spf13-vim operations.
+- A tested compatibility layer for core editing operations.
 
 ## [0.1.0] - 2026-07-16
 

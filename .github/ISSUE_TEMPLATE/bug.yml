@@ -23,4 +23,4 @@ body:
   - type: textarea
     attributes:
       label: Compatibility impact
-      description: Does this affect a spf13-vim mapping or workflow?
+      description: Does this affect an established SISUVim keymap or workflow?

@@ -6,8 +6,8 @@ temp=$(mktemp -d)
 trap 'rm -rf "$temp"' EXIT
 
 mkdir -p "$temp/config/nvim" "$temp/home"
-printf 'legacy nvim config\n' > "$temp/config/nvim/init.lua"
-printf 'legacy vim config\n' > "$temp/home/.vimrc"
+printf 'existing nvim config\n' > "$temp/config/nvim/init.lua"
+printf 'existing vim config\n' > "$temp/home/.vimrc"
 
 HOME="$temp/home" XDG_CONFIG_HOME="$temp/config" "$root/install.sh"
 

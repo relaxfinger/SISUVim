@@ -1,8 +1,8 @@
 # SISUVim
 
-SISUVim is a modern, dependency-free Vim and Neovim distribution. It preserves
-the editing muscle memory that made spf13-vim productive, while starting with a
-small, maintainable codebase for current Vim and Neovim.
+SISUVim is a modern Vim and Neovim distribution. It preserves a familiar,
+keyboard-first editing workflow while keeping a small, maintainable codebase
+for current Vim and Neovim.
 
 ## Goals
 
@@ -13,8 +13,7 @@ small, maintainable codebase for current Vim and Neovim.
   Vimscript for Vim.
 - Start without mandatory plugins or network downloads. Optional integrations
   will be added as separately documented modules.
-- Remain an MIT-licensed project. No code from the Apache-2.0-licensed ancestor
-  is copied into SISUVim.
+- Remain an MIT-licensed project.
 
 ## Install
 
@@ -48,7 +47,7 @@ package directory.
 | `vim/sisuvim.vim` | Vim-compatible options and mappings |
 | `Install-SISUVim.ps1` | Windows PowerShell installer |
 | `scripts/install-packages.sh` | Reproducible optional package installer |
-| `docs/migration.md` | Mapping compatibility status and migration decisions |
+| `docs/keymaps.md` | Supported keymap contract |
 
 ## Verify
 
@@ -69,7 +68,8 @@ revisions are persisted in Neovim's lockfile. The module keeps these mappings:
 | Mapping | Action |
 | --- | --- |
 | `F5`, `<leader>e` | File explorer |
-| `<leader>ff` | Find files |
+| `<leader>pf` | Find files |
+| `<leader>ff` | Find keyword occurrences |
 | `<leader>fg` | Search project text |
 | `<leader>fb` | Find open buffers |
 | `<leader>fr` | Recent files |
@@ -80,8 +80,8 @@ loading SISUVim to disable package installation for a session.
 
 ## Git workflow
 
-The Neovim Git module retains the Fugitive-style mappings from the previous
-distribution: `<leader>gs/gd/gc/gb/gl/gp/gr/gw/ge/gi`. Gitsigns adds inline
+The Neovim Git module provides familiar Git workflow mappings:
+`<leader>gs/gd/gc/gb/gl/gp/gr/gw/ge/gi`. Gitsigns adds inline
 change markers and hunk actions: `[c` / `]c` navigate, while
 `<leader>hp/hs/hr` preview, stage, or reset a hunk. `<leader>gg` toggles signs.
 

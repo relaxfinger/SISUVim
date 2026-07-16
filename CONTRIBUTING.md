@@ -1,13 +1,13 @@
 # Contributing to SISUVim
 
-Thank you for helping make SISUVim a durable successor to spf13-vim.
+Thank you for helping make SISUVim durable and pleasant to use every day.
 
-## Compatibility first
+## Keymap stability
 
-SISUVim preserves the established spf13-vim editing workflow. Do not repurpose
-an existing mapping without keeping its behavior or providing a documented
-compatibility alias. Update [docs/migration.md](docs/migration.md) and the
-smoke tests whenever a user-visible mapping changes.
+SISUVim protects established editing workflows while improving them carefully.
+Do not repurpose an existing mapping without keeping its behavior or providing
+a documented compatibility alias. Update [docs/keymaps.md](docs/keymaps.md)
+and the smoke tests whenever a user-visible mapping changes.
 
 ## Development workflow
 
@@ -21,4 +21,4 @@ smoke tests whenever a user-visible mapping changes.
 - Keep the Vim 9 core dependency-free and functional.
 - Make Neovim features optional, lazy-loadable, and reproducible.
 - Prefer built-in Neovim APIs before adding a dependency.
-- Do not copy code from the Apache-2.0 ancestor into this MIT project.
+- Keep all contributions compatible with the MIT License.

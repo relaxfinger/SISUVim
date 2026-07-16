@@ -45,7 +45,7 @@ highlight SISUDashboardTitle cterm=bold ctermfg=81 guifg=#7aa2f7 gui=bold
 highlight SISUDashboardHint ctermfg=245 guifg=#a9b1d6
 highlight SISUDashboardKey cterm=bold ctermfg=117 guifg=#7dcfff gui=bold
 
-set statusline=%#SISUStatusMode#\ %{toupper(mode())}\
+set statusline=%#SISUStatusMode#\ %{toupper(mode())}
 set statusline+=%#SISUStatus#\ %f%m%r%h%w
 set statusline+=%=
 set statusline+=%#SISUStatusInfo#\ %{&filetype\ ==#\ ''\ ?\ 'text'\ :\ &filetype}\ %l:%c\ %p%%

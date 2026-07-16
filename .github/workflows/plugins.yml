@@ -23,10 +23,6 @@ permissions:
 jobs:
   bootstrap:
     runs-on: ubuntu-latest
-    env:
-      XDG_DATA_HOME: ${{ runner.temp }}/sisuvim-data
-      XDG_STATE_HOME: ${{ runner.temp }}/sisuvim-state
-      XDG_CACHE_HOME: ${{ runner.temp }}/sisuvim-cache
     steps:
       - uses: actions/checkout@v6.0.2
       - name: Install Neovim
@@ -38,6 +34,9 @@ jobs:
           echo /tmp/nvim-linux-x86_64/bin >> "$GITHUB_PATH"
       - name: Install and load optional packages
         run: |
+          XDG_DATA_HOME="$RUNNER_TEMP/sisuvim-data" \
+          XDG_STATE_HOME="$RUNNER_TEMP/sisuvim-state" \
+          XDG_CACHE_HOME="$RUNNER_TEMP/sisuvim-cache" \
           nvim --headless --cmd "set rtp^=$PWD" -u init.lua \
             '+lua require("lazy").sync({ wait = true })' \
             '+lua assert(vim.fn.exists(":Git") == 2)' \
